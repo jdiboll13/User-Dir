@@ -8,15 +8,40 @@
     <link rel="stylesheet" href="/style.css" type="text/css">
   </head>
   <body>
-    <div class="container">
-      <section class="user-box">
-        <img class="user" src="{{avatar}}">
-        <h1>{{name}}</h1>
-        <p>{{#address}}{{#city}}{{city}},{{/city}} {{#country}}{{country}}{{/country}}{{/address}} | {{#job}}{{job}},{{/job}} {{^job}}Available for Hire{{/job}} {{#company}}{{company}}{{/company}}</p>
+    <div class="user">
+      <div class="primary">
+        <figure>
+          <img src="{{avatar}}">
+        </figure>
 
-        <p>{{#university}}Education: {{university}}{{/university}}</p>
-        <p>Skills: {{skills}}</p>
-      </section>
+        <div class="contact">
+          <h1>{{name}}</h1>
+          <p>
+          {{#address.city}}
+          {{address.city}},
+          {{/address.city}}
+          {{address.country}} |
+          {{#job}}
+          {{job}}, {{company}}
+          {{/job}}
+          {{^job}}
+          <span class="nojob">Available for Hire</span>
+          {{/job}}
+          </p>
+        </div>
+      </div>
+      <div class="details">
+        <dl>
+          {{#university}}
+          <dt>Education</dt>
+          <dd>{{university}}</dd>
+          {{/university}}
+          <dt>Skills</dt>
+          {{#skills}}
+          <dd>{{.}}</dd>
+          {{/skills}}
+        </dl>
+      </div>
     </div>
   </body>
 </html>

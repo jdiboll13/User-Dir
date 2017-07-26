@@ -10,12 +10,13 @@
   <body>
     <div class="container">
           <h1>User Directory</h1>
-          <ul>
+          <ul class="users">
               {{#users}}
                 <li>
                   <img src={{avatar}} alt="Oops">
                   <h2><a href="/users/{{username}}">{{name}}</a></h2>
-                  <p>{{#job}}{{job}},{{/job}} {{^job}}Available for Hire{{/job}} {{#company}}{{company}}{{/company}}</p>
+                  {{#job}}<p>{{job}}, {{company}}</p>{{/job}}
+                  {{^job}}<p class="nojob">Available for Hire</p>{{/job}}
                 </li>
               {{/users}}
           </ul>
