@@ -8,7 +8,7 @@ app.use(express.static('public'))
 app.engine('mustache', mustacheExpress())
 app.set('views', './views')
 app.set('view engine', 'mustache')
-
+//Can use mst instead of mustache. This is apparently very common.
 app.listen(3000, () => {
   console.log("Let's do this!")
 })
